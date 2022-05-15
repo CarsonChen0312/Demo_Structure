@@ -1,0 +1,22 @@
+{
+  "name": "Demo_Structure",
+  "version": "0.1.0",
+  "summary": "A short description of Demo_Structure.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Carson/Demo_Structure",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Carson": "carson.chen@yunzhanghu.com"
+  },
+  "source": {
+    "git": "https://github.com/Carson/Demo_Structure.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "Demo_Structure/Classes/**/*"
+}
