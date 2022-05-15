@@ -36,7 +36,7 @@ extension MVVMCViewModel: MVVMCViewModelProtocol {
         }
     }
     
-    func onClicButtonClick() {
+    func onClickButtonClick() {
         coordinator.pushToMVCPage()
     }
 }

@@ -34,7 +34,7 @@ extension MVPPresent {
 
 extension MVPPresent: ViewDelegate {
     
-    func onClicButtonClick() {
+    func onClickButtonClick() {
         sum += 1
         model?.titleText = "Title \(arc4random())"
         fillData()

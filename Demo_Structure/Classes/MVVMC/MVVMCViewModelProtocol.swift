@@ -15,5 +15,5 @@ protocol MVVMCViewModelProtocol {
     
     func loadData(complation: @escaping (Result<Bool, Error>) -> Void)
     
-    func onClicButtonClick()
+    func onClickButtonClick()
 }

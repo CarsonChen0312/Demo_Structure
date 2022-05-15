@@ -7,23 +7,13 @@
 
 import Foundation
 
-protocol VIPViewControllerInput {
-    
-    func showLogingSuccess(fullUserName: String)
-    func showLogingFailure(message: String)
-}
-
-protocol VIPViewControllerOutput {
-    func tryToLogIn()
-}
-
 final class VIPViewController: BaseViewController {
     
-    var interator: VIPInteratorInput?
+    var interator: VIPInteratorProtocol?
     
-    var router: VIPRoutingLogic?
+    var router: VIPRouterProtocol?
     
-    private let viewModel: VIPViewModel
+    private var viewModel: VIPViewModel
     
     private let centerView = VIPView(frame: .init(x: 0, y: 80, width: UIScreen.main.bounds.width, height: 100))
     
@@ -39,6 +29,12 @@ final class VIPViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        bindData()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        interator?.onPageTap()
     }
 }
 
@@ -46,10 +42,15 @@ extension VIPViewController {
     
     private func setupViews() {
         view.addSubview(centerView)
+        centerView.delegate = self
+    }
+    
+    private func bindData() {
+        centerView.fillData(titleText: viewModel.titleText, buttonTitle: viewModel.buttonTitle)
     }
 }
 
-extension VIPViewController: VIPViewControllerInput {
+extension VIPViewController: VIPViewControllerProtocol {
     
     func showLogingSuccess(fullUserName: String) {
         router?.showLogingSuccess(fullUserName: fullUserName)
@@ -58,11 +59,16 @@ extension VIPViewController: VIPViewControllerInput {
     func showLogingFailure(message: String) {
         router?.showLogingFailure(message: message)
     }
+    
+    func updateContent(content: String) {
+        centerView.fillData(titleText: content, buttonTitle: viewModel.buttonTitle)
+    }
 }
 
-extension VIPViewController: VIPViewControllerOutput {
+
+extension VIPViewController: ViewDelegate {
     
-    func tryToLogIn() {
-        
+    func onClickButtonClick() {
+        interator?.onClickButtonClick()
     }
 }

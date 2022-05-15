@@ -53,7 +53,7 @@ extension MVVMCViewController {
 
 extension MVVMCViewController: ViewDelegate {
     
-    func onClicButtonClick() {
-        viewModel.onClicButtonClick()
+    func onClickButtonClick() {
+        viewModel.onClickButtonClick()
     }
 }

@@ -33,8 +33,7 @@ public struct StructureFactory {
     }
     
     public static func configVIPViewController() -> UIViewController {
-//        VIPViewConfigurator.configViewController()
-        UIViewController()
+        VIPConfigurator().configViewController()
     }
     
     public static func configVIPERViewController() -> UIViewController {

@@ -7,6 +7,24 @@
 
 import Foundation
 
-protocol VIPPersenterProtocol {
-    
+protocol VIPViewControllerProtocol: AnyObject {
+    func showLogingSuccess(fullUserName: String)
+    func showLogingFailure(message: String)
+    func updateContent(content: String)
+}
+
+protocol VIPPresenterProtocol {
+    func onLoadDataSuccess(flag: Bool)
+    func onLoadDataFailure(error: Error)
+    func onClickButtonClick()
+}
+
+protocol VIPRouterProtocol {
+    func showLogingSuccess(fullUserName: String)
+    func showLogingFailure(message: String)
+}
+
+protocol VIPInteratorProtocol {
+    func onClickButtonClick()
+    func onPageTap()
 }

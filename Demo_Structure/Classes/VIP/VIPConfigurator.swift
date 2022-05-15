@@ -7,13 +7,20 @@
 
 import Foundation
 
-struct VIPConfigurator {
+final class VIPConfigurator {
     
-    static func configViewController() -> UIViewController {
-        let viewModel = VIPViewModel()
+    func configViewController() -> UIViewController {
+        let model = VIPModel(titleText: "VIPTitle", buttonTitle: "Click")
+        let viewModel = VIPViewModel(model: model)
         let viewController = VIPViewController(viewModel: viewModel)
         let router = VIPRouter()
+        let presenter = VIPPresenter()
+        let interactor = VIPInterator()
         viewController.router = router
+        viewController.interator = interactor
+        presenter.viewController = viewController
+        router.viewController = viewController
+        interactor.presenter = presenter
         return viewController
     }
 }

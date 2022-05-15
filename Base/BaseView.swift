@@ -10,7 +10,7 @@ import UIKit
 
 protocol ViewDelegate: AnyObject {
     
-    func onClicButtonClick()
+    func onClickButtonClick()
 }
 
 class BaseView: UIView {
@@ -52,6 +52,6 @@ extension BaseView {
     
     @objc
     private func onClickButtonAction() {
-        delegate?.onClicButtonClick()
+        delegate?.onClickButtonClick()
     }
 }

@@ -57,7 +57,7 @@ extension MVVMViewController {
 
 extension MVVMViewController: ViewDelegate {
     
-    func onClicButtonClick() {
+    func onClickButtonClick() {
         viewModel.onClicButtonClick()
     }
 }

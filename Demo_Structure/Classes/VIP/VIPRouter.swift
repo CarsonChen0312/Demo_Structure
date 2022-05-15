@@ -7,23 +7,17 @@
 
 import Foundation
 
-protocol VIPRoutingLogic {
-    
-    func showLogingSuccess(fullUserName: String)
-    func showLogingFailure(message: String)
-} 
-
 final class VIPRouter {
     
-    weak var source: UIViewController?
+    weak var viewController: UIViewController?
     
     private func showAlert(message: String) {
         let alert = UIAlertController.alert(message)
-        source?.present(alert, animated: true, completion: nil)
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }
 
-extension VIPRouter: VIPRoutingLogic {
+extension VIPRouter: VIPRouterProtocol {
     
     func showLogingSuccess(fullUserName: String) {
         showAlert(message: fullUserName)

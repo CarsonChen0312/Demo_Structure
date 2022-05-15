@@ -35,7 +35,7 @@ extension MVCViewController {
 
 extension MVCViewController: ViewDelegate {
     
-    func onClicButtonClick() {
+    func onClickButtonClick() {
         model.titleText = "Title \(arc4random())"
         fillData()
     }
